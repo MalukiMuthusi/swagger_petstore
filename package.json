@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MalukiMuthusi/petstore.git"
+    "url": "https://github.com/MalukiMuthusi/swagger_petstore.git"
   },
   "scripts": {
     "test": "mocha --require @babel/register --recursive"
