@@ -1,6 +1,6 @@
 # OpenApiPetstore.PetApi
 
-All URIs are relative to *http://petstore.swagger.io:80/v2*
+All URIs are relative to *http://petstore.swagger.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,13 +12,12 @@ Method | HTTP request | Description
 [**updatePet**](PetApi.md#updatePet) | **PUT** /pet | Update an existing pet
 [**updatePetWithForm**](PetApi.md#updatePetWithForm) | **POST** /pet/{petId} | Updates a pet in the store with form data
 [**uploadFile**](PetApi.md#uploadFile) | **POST** /pet/{petId}/uploadImage | uploads an image
-[**uploadFileWithRequiredFile**](PetApi.md#uploadFileWithRequiredFile) | **POST** /fake/{petId}/uploadImageWithRequiredFile | uploads an image (required)
 
 
 
 ## addPet
 
-> addPet(pet)
+> Pet addPet(pet)
 
 Add a new pet to the store
 
@@ -35,8 +34,8 @@ petstore_auth.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new OpenApiPetstore.PetApi();
 let pet = new OpenApiPetstore.Pet(); // Pet | Pet object that needs to be added to the store
-apiInstance.addPet(pet).then(() => {
-  console.log('API called successfully.');
+apiInstance.addPet(pet).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -52,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**Pet**](Pet.md)
 
 ### Authorization
 
@@ -61,7 +60,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
-- **Accept**: Not defined
+- **Accept**: application/xml, application/json
 
 
 ## deletePet
@@ -264,7 +263,7 @@ Name | Type | Description  | Notes
 
 ## updatePet
 
-> updatePet(pet)
+> Pet updatePet(pet)
 
 Update an existing pet
 
@@ -281,8 +280,8 @@ petstore_auth.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new OpenApiPetstore.PetApi();
 let pet = new OpenApiPetstore.Pet(); // Pet | Pet object that needs to be added to the store
-apiInstance.updatePet(pet).then(() => {
-  console.log('API called successfully.');
+apiInstance.updatePet(pet).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -298,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**Pet**](Pet.md)
 
 ### Authorization
 
@@ -307,7 +306,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
-- **Accept**: Not defined
+- **Accept**: application/xml, application/json
 
 
 ## updatePetWithForm
@@ -403,60 +402,6 @@ Name | Type | Description  | Notes
  **petId** | **Number**| ID of pet to update | 
  **additionalMetadata** | **String**| Additional data to pass to server | [optional] 
  **file** | **File**| file to upload | [optional] 
-
-### Return type
-
-[**ApiResponse**](ApiResponse.md)
-
-### Authorization
-
-[petstore_auth](../README.md#petstore_auth)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
-
-
-## uploadFileWithRequiredFile
-
-> ApiResponse uploadFileWithRequiredFile(petId, requiredFile, opts)
-
-uploads an image (required)
-
-
-
-### Example
-
-```javascript
-import OpenApiPetstore from 'open_api_petstore';
-let defaultClient = OpenApiPetstore.ApiClient.instance;
-// Configure OAuth2 access token for authorization: petstore_auth
-let petstore_auth = defaultClient.authentications['petstore_auth'];
-petstore_auth.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new OpenApiPetstore.PetApi();
-let petId = 789; // Number | ID of pet to update
-let requiredFile = "/path/to/file"; // File | file to upload
-let opts = {
-  'additionalMetadata': "additionalMetadata_example" // String | Additional data to pass to server
-};
-apiInstance.uploadFileWithRequiredFile(petId, requiredFile, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **petId** | **Number**| ID of pet to update | 
- **requiredFile** | **File**| file to upload | 
- **additionalMetadata** | **String**| Additional data to pass to server | [optional] 
 
 ### Return type
 

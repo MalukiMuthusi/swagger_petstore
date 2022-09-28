@@ -1,6 +1,6 @@
 /**
  * OpenAPI Petstore
- * This spec is mainly for testing Petstore server and contains fake endpoints, models. Please do not use this for any other purpose. Special characters: \" \\
+ * This is a sample server Petstore server. For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -49,7 +49,7 @@ export default class StoreApi {
       }
 
       let pathParams = {
-        'order_id': orderId
+        'orderId': orderId
       };
       let queryParams = {
       };
@@ -63,7 +63,7 @@ export default class StoreApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/store/order/{order_id}', 'DELETE',
+        '/store/order/{orderId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -138,7 +138,7 @@ export default class StoreApi {
       }
 
       let pathParams = {
-        'order_id': orderId
+        'orderId': orderId
       };
       let queryParams = {
       };
@@ -152,7 +152,7 @@ export default class StoreApi {
       let accepts = ['application/xml', 'application/json'];
       let returnType = Order;
       return this.apiClient.callApi(
-        '/store/order/{order_id}', 'GET',
+        '/store/order/{orderId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

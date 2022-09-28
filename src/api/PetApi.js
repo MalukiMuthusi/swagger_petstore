@@ -1,6 +1,6 @@
 /**
  * OpenAPI Petstore
- * This spec is mainly for testing Petstore server and contains fake endpoints, models. Please do not use this for any other purpose. Special characters: \" \\
+ * This is a sample server Petstore server. For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -40,10 +40,9 @@ export default class PetApi {
      * Add a new pet to the store
      * 
      * @param {module:model/Pet} pet Pet object that needs to be added to the store
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Pet} and HTTP response
      */
-    addPetWithHttpInfo(pet, opts) {
-      opts = opts || {};
+    addPetWithHttpInfo(pet) {
       let postBody = pet;
       // verify the required parameter 'pet' is set
       if (pet === undefined || pet === null) {
@@ -61,21 +60,12 @@ export default class PetApi {
 
       let authNames = ['petstore_auth'];
       let contentTypes = ['application/json', 'application/xml'];
-      let accepts = [];
-      let returnType = null;
-      let basePaths = ['http://petstore.swagger.io/v2', 'http://path-server-test.petstore.local/v2'];
-      let basePath = basePaths[0]; // by default use the first one in "servers" defined in OpenAPI
-      if (typeof opts['_base_path_index'] !== 'undefined') {
-        if (opts['_base_path_index']  >= basePaths.length || opts['_base_path_index'] <  0) {
-          throw new Error("Invalid index " + opts['_base_path_index'] + " when selecting the host settings. Must be less than " + basePaths.length);
-        }
-        basePath = basePaths[opts['_base_path_index']];
-      }
-
+      let accepts = ['application/xml', 'application/json'];
+      let returnType = Pet;
       return this.apiClient.callApi(
         '/pet', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, basePath
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
@@ -83,10 +73,10 @@ export default class PetApi {
      * Add a new pet to the store
      * 
      * @param {module:model/Pet} pet Pet object that needs to be added to the store
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Pet}
      */
-    addPet(pet, opts) {
-      return this.addPetWithHttpInfo(pet, opts)
+    addPet(pet) {
+      return this.addPetWithHttpInfo(pet)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -295,10 +285,9 @@ export default class PetApi {
      * Update an existing pet
      * 
      * @param {module:model/Pet} pet Pet object that needs to be added to the store
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Pet} and HTTP response
      */
-    updatePetWithHttpInfo(pet, opts) {
-      opts = opts || {};
+    updatePetWithHttpInfo(pet) {
       let postBody = pet;
       // verify the required parameter 'pet' is set
       if (pet === undefined || pet === null) {
@@ -316,21 +305,12 @@ export default class PetApi {
 
       let authNames = ['petstore_auth'];
       let contentTypes = ['application/json', 'application/xml'];
-      let accepts = [];
-      let returnType = null;
-      let basePaths = ['http://petstore.swagger.io/v2', 'http://path-server-test.petstore.local/v2'];
-      let basePath = basePaths[0]; // by default use the first one in "servers" defined in OpenAPI
-      if (typeof opts['_base_path_index'] !== 'undefined') {
-        if (opts['_base_path_index']  >= basePaths.length || opts['_base_path_index'] <  0) {
-          throw new Error("Invalid index " + opts['_base_path_index'] + " when selecting the host settings. Must be less than " + basePaths.length);
-        }
-        basePath = basePaths[opts['_base_path_index']];
-      }
-
+      let accepts = ['application/xml', 'application/json'];
+      let returnType = Pet;
       return this.apiClient.callApi(
         '/pet', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, basePath
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
@@ -338,10 +318,10 @@ export default class PetApi {
      * Update an existing pet
      * 
      * @param {module:model/Pet} pet Pet object that needs to be added to the store
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Pet}
      */
-    updatePet(pet, opts) {
-      return this.updatePetWithHttpInfo(pet, opts)
+    updatePet(pet) {
+      return this.updatePetWithHttpInfo(pet)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -456,67 +436,6 @@ export default class PetApi {
      */
     uploadFile(petId, opts) {
       return this.uploadFileWithHttpInfo(petId, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * uploads an image (required)
-     * 
-     * @param {Number} petId ID of pet to update
-     * @param {File} requiredFile file to upload
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.additionalMetadata Additional data to pass to server
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ApiResponse} and HTTP response
-     */
-    uploadFileWithRequiredFileWithHttpInfo(petId, requiredFile, opts) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'petId' is set
-      if (petId === undefined || petId === null) {
-        throw new Error("Missing the required parameter 'petId' when calling uploadFileWithRequiredFile");
-      }
-      // verify the required parameter 'requiredFile' is set
-      if (requiredFile === undefined || requiredFile === null) {
-        throw new Error("Missing the required parameter 'requiredFile' when calling uploadFileWithRequiredFile");
-      }
-
-      let pathParams = {
-        'petId': petId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-        'additionalMetadata': opts['additionalMetadata'],
-        'requiredFile': requiredFile
-      };
-
-      let authNames = ['petstore_auth'];
-      let contentTypes = ['multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = ApiResponse;
-      return this.apiClient.callApi(
-        '/fake/{petId}/uploadImageWithRequiredFile', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * uploads an image (required)
-     * 
-     * @param {Number} petId ID of pet to update
-     * @param {File} requiredFile file to upload
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.additionalMetadata Additional data to pass to server
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ApiResponse}
-     */
-    uploadFileWithRequiredFile(petId, requiredFile, opts) {
-      return this.uploadFileWithRequiredFileWithHttpInfo(petId, requiredFile, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

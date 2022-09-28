@@ -1,6 +1,6 @@
 /**
  * OpenAPI Petstore
- * This spec is mainly for testing Petstore server and contains fake endpoints, models. Please do not use this for any other purpose. Special characters: \" \\
+ * This is a sample server Petstore server. For this sample, you can use the api key `special-key` to test the authorization filters.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -33,11 +33,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'http://petstore.swagger.io:80/v2') {
+    constructor(basePath = 'http://petstore.swagger.io/v2') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://petstore.swagger.io:80/v2
+         * @default http://petstore.swagger.io/v2
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -47,9 +47,6 @@ class ApiClient {
          */
         this.authentications = {
             'api_key': {type: 'apiKey', 'in': 'header', name: 'api_key'},
-            'api_key_query': {type: 'apiKey', 'in': 'query', name: 'api_key_query'},
-            'bearer_test': {type: 'bearer'}, // JWT
-            'http_basic_test': {type: 'basic'},
             'petstore_auth': {type: 'oauth2'}
         }
 
@@ -598,45 +595,8 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "http://{server}.swagger.io:{port}/v2",
-              'description': "petstore server",
-              'variables': {
-                server: {
-                    'description': "No description provided",
-                    'default_value': "petstore",
-                    'enum_values': [
-                      "petstore",
-                      "qa-petstore",
-                      "dev-petstore"
-                    ]
-                  },
-                port: {
-                    'description': "No description provided",
-                    'default_value': "80",
-                    'enum_values': [
-                      "80",
-                      "8080"
-                    ]
-                  }
-                }
-            },
-            {
-              'url': "https://localhost:8080/{version}",
-              'description': "The local server",
-              'variables': {
-                version: {
-                    'description': "No description provided",
-                    'default_value': "v2",
-                    'enum_values': [
-                      "v1",
-                      "v2"
-                    ]
-                  }
-                }
-            },
-            {
-              'url': "https://127.0.0.1/no_varaible",
-              'description': "The local server without variables",
+              'url': "http://petstore.swagger.io/v2",
+              'description': "No description provided",
             }
       ];
     }

@@ -1,6 +1,6 @@
 # OpenApiPetstore.UserApi
 
-All URIs are relative to *http://petstore.swagger.io:80/v2*
+All URIs are relative to *http://petstore.swagger.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,6 +27,12 @@ This can only be done by the logged in user.
 
 ```javascript
 import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenApiPetstore.UserApi();
 let user = new OpenApiPetstore.User(); // User | Created user object
@@ -51,7 +57,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -71,6 +77,12 @@ Creates list of users with given input array
 
 ```javascript
 import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenApiPetstore.UserApi();
 let user = [new OpenApiPetstore.User()]; // [User] | List of user object
@@ -95,7 +107,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -115,6 +127,12 @@ Creates list of users with given input array
 
 ```javascript
 import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenApiPetstore.UserApi();
 let user = [new OpenApiPetstore.User()]; // [User] | List of user object
@@ -139,7 +157,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -159,6 +177,12 @@ This can only be done by the logged in user.
 
 ```javascript
 import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenApiPetstore.UserApi();
 let username = "username_example"; // String | The name that needs to be deleted
@@ -183,7 +207,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -293,6 +317,12 @@ Logs out current logged in user session
 
 ```javascript
 import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenApiPetstore.UserApi();
 apiInstance.logoutUser().then(() => {
@@ -313,7 +343,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -333,6 +363,12 @@ This can only be done by the logged in user.
 
 ```javascript
 import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new OpenApiPetstore.UserApi();
 let username = "username_example"; // String | name that need to be deleted
@@ -359,7 +395,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
