@@ -1,7 +1,10 @@
-# SwaggerPetstore.Animal
+# OpenApiPetstore.Animal
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **className** | **String** |  | 
-**color** | **String** |  | [optional] [default to &#x27;red&#x27;]
+**color** | **String** |  | [optional] [default to &#39;red&#39;]
+
+

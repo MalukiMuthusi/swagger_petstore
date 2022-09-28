@@ -1,7 +1,12 @@
-# SwaggerPetstore.EnumClass
+# OpenApiPetstore.EnumClass
 
 ## Enum
 
-* `abc` (value: `"_abc"`)
-* `efg` (value: `"-efg"`)
-* `xyz` (value: `"(xyz)"`)
+
+* `_abc` (value: `"_abc"`)
+
+* `-efg` (value: `"-efg"`)
+
+* `(xyz)` (value: `"(xyz)"`)
+
+

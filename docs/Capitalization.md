@@ -1,6 +1,7 @@
-# SwaggerPetstore.Capitalization
+# OpenApiPetstore.Capitalization
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **smallCamel** | **String** |  | [optional] 
@@ -9,3 +10,5 @@ Name | Type | Description | Notes
 **capitalSnake** | **String** |  | [optional] 
 **sCAETHFlowPoints** | **String** |  | [optional] 
 **ATT_NAME** | **String** | Name of the pet  | [optional] 
+
+

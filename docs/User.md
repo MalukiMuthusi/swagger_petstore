@@ -1,6 +1,7 @@
-# SwaggerPetstore.User
+# OpenApiPetstore.User
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [optional] 
@@ -11,3 +12,5 @@ Name | Type | Description | Notes
 **password** | **String** |  | [optional] 
 **phone** | **String** |  | [optional] 
 **userStatus** | **Number** | User Status | [optional] 
+
+

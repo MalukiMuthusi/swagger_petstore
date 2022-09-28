@@ -1,1 +1,1 @@
-java -jar "C:\Program Files\swagger\swagger-codegen-cli.jar" generate -i openapi.yaml -l javascript -o . -DappName=PetstoreClient --additional-properties
+java -jar "C:\Program Files\swagger\openapi-generator-cli.jar" generate -i openapi.yaml -g javascript -t Javascript -o . --additional-properties usePromises=true

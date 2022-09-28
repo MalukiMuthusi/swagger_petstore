@@ -1,4 +1,4 @@
-# SwaggerPetstore.StoreApi
+# OpenApiPetstore.StoreApi
 
 All URIs are relative to *http://petstore.swagger.io:80/v2*
 
@@ -9,8 +9,10 @@ Method | HTTP request | Description
 [**getOrderById**](StoreApi.md#getOrderById) | **GET** /store/order/{order_id} | Find purchase order by ID
 [**placeOrder**](StoreApi.md#placeOrder) | **POST** /store/order | Place an order for a pet
 
-<a name="deleteOrder"></a>
-# **deleteOrder**
+
+
+## deleteOrder
+
 > deleteOrder(orderId)
 
 Delete purchase order by ID
@@ -18,22 +20,22 @@ Delete purchase order by ID
 For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
 
 ### Example
+
 ```javascript
-import {SwaggerPetstore} from 'swagger_petstore';
+import OpenApiPetstore from 'open_api_petstore';
 
-let apiInstance = new SwaggerPetstore.StoreApi();
+let apiInstance = new OpenApiPetstore.StoreApi();
 let orderId = "orderId_example"; // String | ID of the order that needs to be deleted
-
-apiInstance.deleteOrder(orderId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteOrder(orderId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -49,44 +51,45 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-<a name="getInventory"></a>
-# **getInventory**
-> {&#x27;String&#x27;: &#x27;Number&#x27;} getInventory()
+
+## getInventory
+
+> {String: Number} getInventory()
 
 Returns pet inventories by status
 
 Returns a map of status codes to quantities
 
 ### Example
-```javascript
-import {SwaggerPetstore} from 'swagger_petstore';
-let defaultClient = SwaggerPetstore.ApiClient.instance;
 
+```javascript
+import OpenApiPetstore from 'open_api_petstore';
+let defaultClient = OpenApiPetstore.ApiClient.instance;
 // Configure API key authorization: api_key
 let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new SwaggerPetstore.StoreApi();
-apiInstance.getInventory((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new OpenApiPetstore.StoreApi();
+apiInstance.getInventory().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-**{&#x27;String&#x27;: &#x27;Number&#x27;}**
+**{String: Number}**
 
 ### Authorization
 
@@ -94,11 +97,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderById"></a>
-# **getOrderById**
+
+## getOrderById
+
 > Order getOrderById(orderId)
 
 Find purchase order by ID
@@ -106,22 +110,22 @@ Find purchase order by ID
 For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions
 
 ### Example
+
 ```javascript
-import {SwaggerPetstore} from 'swagger_petstore';
+import OpenApiPetstore from 'open_api_petstore';
 
-let apiInstance = new SwaggerPetstore.StoreApi();
+let apiInstance = new OpenApiPetstore.StoreApi();
 let orderId = 789; // Number | ID of pet that needs to be fetched
-
-apiInstance.getOrderById(orderId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getOrderById(orderId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -137,36 +141,39 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/xml, application/json
+- **Content-Type**: Not defined
+- **Accept**: application/xml, application/json
 
-<a name="placeOrder"></a>
-# **placeOrder**
-> Order placeOrder(body)
+
+## placeOrder
+
+> Order placeOrder(order)
 
 Place an order for a pet
 
+
+
 ### Example
+
 ```javascript
-import {SwaggerPetstore} from 'swagger_petstore';
+import OpenApiPetstore from 'open_api_petstore';
 
-let apiInstance = new SwaggerPetstore.StoreApi();
-let body = new SwaggerPetstore.Order(); // Order | order placed for purchasing the pet
-
-apiInstance.placeOrder(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new OpenApiPetstore.StoreApi();
+let order = new OpenApiPetstore.Order(); // Order | order placed for purchasing the pet
+apiInstance.placeOrder(order).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Order**](Order.md)| order placed for purchasing the pet | 
+ **order** | [**Order**](Order.md)| order placed for purchasing the pet | 
 
 ### Return type
 
@@ -178,6 +185,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/xml, application/json
+- **Content-Type**: application/json
+- **Accept**: application/xml, application/json
 

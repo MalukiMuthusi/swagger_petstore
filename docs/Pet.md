@@ -1,6 +1,7 @@
-# SwaggerPetstore.Pet
+# OpenApiPetstore.Pet
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [optional] 
@@ -10,10 +11,17 @@ Name | Type | Description | Notes
 **tags** | [**[Tag]**](Tag.md) |  | [optional] 
 **status** | **String** | pet status in the store | [optional] 
 
-<a name="StatusEnum"></a>
+
+
 ## Enum: StatusEnum
 
+
 * `available` (value: `"available"`)
+
 * `pending` (value: `"pending"`)
+
 * `sold` (value: `"sold"`)
+
+
+
 
