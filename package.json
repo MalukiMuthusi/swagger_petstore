@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/MalukiMuthusi/swagger_petstore.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "test": "mocha --require @babel/register --recursive"
   },
